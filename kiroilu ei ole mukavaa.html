@@ -1,0 +1,61 @@
+<!DOCTYPE HTMl>
+<html>
+
+    <h1>json requester</h1>
+    <p>by <a href="https://github.com/juhopohjonen/json_request">Juho Pohjonen</a></p>
+
+    <div id="input">
+        <input type="text" id="url">
+        <button onclick="getURL()">request</button>
+    </div>
+
+    <div id="response">
+        <p>response</p>
+        <p id="responseTEXT"></p>
+    </div>
+    
+    <!-- welcome to a source code :) -->
+
+
+</html>
+
+
+
+
+<script>
+
+    
+    function getURL()
+    {
+        
+        
+        req();
+    }
+
+    function req()
+    {
+        let requrl = document.getElementById("url").value;
+        
+        let request = new XMLHttpRequest();
+
+        request.open('GET', requrl);
+        
+        request.responseType = 'json';
+        request.send();
+        request.onload = function()
+    {
+        const timo = request.response;
+        console.log(timo);
+
+        document.getElementById("responseTEXT").innerHTML = "response at developer console (press f12)";
+    }
+
+
+    }
+
+
+
+
+
+
+</script>
